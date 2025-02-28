@@ -22,6 +22,6 @@ export default {
 
 // 修改所有的 API 请求
 // 从:
-fetch('http://localhost:5000/api/scripts')
+
 // 改为:
 fetch(`${API_BASE_URL}/scripts`) 

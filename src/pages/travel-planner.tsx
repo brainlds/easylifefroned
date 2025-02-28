@@ -197,7 +197,7 @@ export const TravelPlanner: React.FC = () => {
 
             // 获取去程车票
             const outboundResponse = await fetch(
-                `http://localhost:5000/api/train/tickets?start=${preferences.startPoint}&end=${preferences.endPoint}&date=${preferences.startDate}`
+                `${process.env.REACT_APP_API_URL}/api/train/tickets?start=${preferences.startPoint}&end=${preferences.endPoint}&date=${preferences.startDate}`
             );
             const outboundData = await outboundResponse.json();
             if (outboundData.success) {

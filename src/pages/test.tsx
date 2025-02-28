@@ -46,7 +46,7 @@ export const TestPage: React.FC = () => {
 
             try {
                 setLoading(true);
-                const response = await fetch(`http://localhost:5000/api/test?type=${testType}`, {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/test?type=${testType}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

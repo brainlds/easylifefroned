@@ -35,7 +35,7 @@ interface TestResponse {
  */
 const fetchTest = async (type: string): Promise<TestResponse> => {
     try {
-        const response = await fetch(`http://localhost:5000/api/test?type=${type}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/test?type=${type}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

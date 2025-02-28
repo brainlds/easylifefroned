@@ -42,7 +42,7 @@ const Scripts: React.FC = () => {
     useEffect(() => {
         const fetchScripts = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/scripts');
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/scripts`);
                 const data: ScriptResponse = await response.json();
 
                 if (data.success) {

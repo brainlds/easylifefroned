@@ -58,7 +58,7 @@ export const CustomerService: React.FC = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api/cs/chat', {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/cs/chat`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
