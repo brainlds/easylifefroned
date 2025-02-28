@@ -259,7 +259,7 @@ export const TravelPlanner: React.FC = () => {
                 }
             };
 
-            const response = await fetch('http://localhost:5000/api/travel/plan', {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/travel/plan`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -73,7 +73,7 @@ const Scripts: React.FC = () => {
 
     const handleDownload = async (scriptName: string) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/scripts/download/${scriptName}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/scripts/download/${scriptName}`, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/octet-stream',

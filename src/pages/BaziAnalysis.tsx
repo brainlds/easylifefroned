@@ -30,7 +30,7 @@ const BaziAnalysis: React.FC = () => {
         };
 
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/bazi/analyze`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/bazi/analyze`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -308,7 +308,7 @@ const askQuestion = async (question: string, modelId: Model['id']): Promise<stri
             provider: MODEL_PROVIDER_MAP[modelId]
         };
 
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/chat`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/chat`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
