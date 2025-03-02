@@ -2,16 +2,23 @@ import React from 'react';
 import { Layout } from '../components/layout';
 import { Box, Typography, Button, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface PaymentState {
-    totalCost: number;
     orderId: string;
+    purchaseData: {
+        totalCost: number;
+        // ... 其他购买数据
+    };
 }
 
 const PaymentPage: React.FC = () => {
     const location = useLocation();
-    const { totalCost, orderId }: PaymentState = location.state as PaymentState;
+    const navigate = useNavigate();
+    const state = location.state as PaymentState;
+
+    // 确保有 state 和 totalCost
+    const totalCost = state?.purchaseData?.totalCost || 0;
 
     return (
         <Layout>
@@ -21,15 +28,16 @@ const PaymentPage: React.FC = () => {
                         购买成功
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        感谢您的购买！您的订单 ID 是: {orderId}
+                        感谢您的购买！
                     </Typography>
-                    <Typography variant="body1" gutterBottom>
-                        您的总花费为: ¥{totalCost}
+                    <Typography variant="body1" gutterBottom color="primary" sx={{ fontSize: '1.2rem', my: 3 }}>
+                        总花费: ¥{totalCost}
                     </Typography>
                     <Button
                         variant="contained"
                         color="primary"
-                        onClick={() => window.location.href = '/'}
+                        onClick={() => navigate('/')}
+                        sx={{ mt: 2 }}
                     >
                         返回首页
                     </Button>
